@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 	<key>fileTypes</key>
@@ -20,31 +20,25 @@
 		</dict>
 		<dict>
 			<key>begin</key>
+			<string>//</string>
+			<key>end</key>
+			<string>$</string>
+			<key>name</key>
+			<string>comment.line.double-slash.hlsl</string>
+		</dict>
+		<dict>
+			<key>begin</key>
 			<string>/\*</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.comment.hlsl</string>
-				</dict>
-			</dict>
 			<key>end</key>
 			<string>\*/</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>comment.block.hlsl</string>
-				</dict>
-			</dict>
+			<key>name</key>
+			<string>comment.line.multline.hlsl</string>
 		</dict>
 		<dict>
 			<key>comment</key>
 			<string>Numeric constants</string>
 			<key>match</key>
-			<string>\b([0-9]+\.?[0-9]*)|(\.[0-9]+)\b</string>
+			<string>\b(0[xX][0-9a-fA-F]+([lLuU])?)|\b([0-9]+\.?[0-9]*([fFhHlLuU])?)|(\.[0-9]+([fFhHlL])?)\b</string>
 			<key>name</key>
 			<string>constant.numeric.hlsl</string>
 		</dict>
@@ -66,17 +60,67 @@
 		</dict>
 		<dict>
 			<key>comment</key>
+			<string>Preprocessor functions</string>
+			<key>match</key>
+			<string>\b(defined)\b</string>
+			<key>name</key>
+			<string>keyword.control.functions.hlsl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
 			<string>Basic control keywords</string>
 			<key>match</key>
-			<string>\b(break|continue|discard|do|for|if|return|switch|while)\b</string>
+			<string>\b(break|case|continue|default|discard|do|else|for|goto|if|return|switch|while)\b</string>
 			<key>name</key>
 			<string>keyword.control.hlsl</string>
 		</dict>
 		<dict>
 			<key>comment</key>
+			<string>Variable modifiers</string>
+			<key>match</key>
+			<string>\b(in|out|inout|extern|nointerpolation|precise|shared|groupshared|static|uniform|volatile|const|row_major|column_major)\b</string>
+			<key>name</key>
+			<string>keyword.modifier.hlsl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Primitive geometry types</string>
+			<key>match</key>
+			<string>\b(point|line|triangle|lineadj|triangleadj)\b</string>
+			<key>name</key>
+			<string>storage.modifier.primitive.hlsl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Geometry stream types</string>
+			<key>match</key>
+			<string>\b(PointStream|LineStream|TriangleStream)\b</string>
+			<key>name</key>
+			<string>storage.modifier.stream.hlsl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Semantics</string>
+			<key>match</key>
+			<string>(?&lt;=:)\s*(((BINORMAL|BLENDINDICIES|BLENDWEIGHT|COLOR|DEPTH|NORMAL|POSITION|POSITIONT|PSIZE|TANGENT|TEXCOORD|FOG|TESSFACTOR|VFACE|VPOS|SV_(DEPTH|POSITION|TARGET|Depth|Position|Target|ClipDistance|CullDistance|Coverage|Depth|DepthGreaterEqual|DepthLessEqual|DispatchThreadID|DomainLocation|GroupID|GroupIndex|GroupThreadID|GSInstanceID|InnerCoverage|InsideTessFactor|InstanceID|IsFrontFace|OutputControlPointID|Position|PrimitiveID|RenderTargetArrayIndex|SampleIndex|StencilRef|Target|TessFactor|VertexID|ViewportArrayIndex))((1[0-5]|[0-9]))?)\b|register|packoffset)</string>
+			<key>name</key>
+			<string>keyword.semantics.hlsl</string>
+			<key>newVersion</key>
+			<string>(?#In-case I ever need this)(?&lt;=:)\s*([a-zA-Z0-9_]+)\b</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>String</string>
+			<key>match</key>
+			<string>"(?:[^"\\]|\\.)*"</string>
+			<key>name</key>
+			<string>string.double.hlsl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
 			<string>Basic types</string>
 			<key>match</key>
-			<string>\b(bool|double|dword|float|half|int|min10float|min16float|min12int|min16int|min16uint|struct|uint|void)\b</string>
+			<string>\b(bool|double|dword|float|half|int|min10float|min16float|min12int|min16int|min16uint|struct|uint|void|cbuffer|tbuffer|vector|matrix|string)\b</string>
 			<key>name</key>
 			<string>storage.type.scalar.hlsl</string>
 		</dict>
@@ -84,15 +128,23 @@
 			<key>comment</key>
 			<string>Vector forms of scalar types</string>
 			<key>match</key>
-			<string>\b(double1|double2|double3|double4|float1|float2|float3|float4|half1|half2|half3|half4|int1|int2|int3|int4|uint1|uint2|uint3|uint4)\b</string>
+			<string>\b(double|float|half|int|uint|min10float|min16float|min12int|min16int|min16uint)[1-4]\b</string>
 			<key>name</key>
 			<string>storage.type.vector.hlsl</string>
 		</dict>
 		<dict>
 			<key>comment</key>
+			<string>Componenets of vectors</string>
+			<key>match</key>
+			<string>(?&lt;=\.)([rgba]{1,4}|[xzyw]{1,4})\b</string>
+			<key>name</key>
+			<string>storage.type.access.hlsl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
 			<string>Matrix forms of scalar types</string>
 			<key>match</key>
-			<string>\b(double1x1|double1x2|double1x3|double1x4|double2x1|double2x2|double2x3|double2x4|double3x1|double3x2|double3x3|double3x4|double4x1|double4x2|double4x3|double4x4|float1x1|float1x2|float1x3|float1x4|float2x1|float2x2|float2x3|float2x4|float3x1|float3x2|float3x3|float3x4|float4x1|float4x2|float4x3|float4x4|half1x1|half1x2|half1x3|half1x4|half2x1|half2x2|half2x3|half2x4|half3x1|half3x2|half3x3|half3x4|half4x1|half4x2|half4x3|half4x4|int1x1|int1x2|int1x3|int1x4|int2x1|int2x2|int2x3|int2x4|int3x1|int3x2|int3x3|int3x4|int4x1|int4x2|int4x3|int4x4|uint1x1|uint1x2|uint1x3|uint1x4|uint2x1|uint2x2|uint2x3|uint2x4|uint3x1|uint3x2|uint3x3|uint3x4|uint4x1|uint4x2|uint4x3|uint4x4)\b</string>
+			<string>\b(double|float|half|int|uint|min10float|min16float|min12int|min16int|min16uint)[1-4]x[1-4]\b</string>
 			<key>name</key>
 			<string>storage.type.matrix.hlsl</string>
 		</dict>
@@ -102,7 +154,15 @@
 			<key>match</key>
 			<string>\b(snorm|unorm)\b</string>
 			<key>name</key>
-			<string>storage.type.float.modifier.hlsl</string>
+			<string>keyword.modifier.float.hlsl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Typedef</string>
+			<key>match</key>
+			<string>\b(typedef)\b</string>
+			<key>name</key>
+			<string>keyword.other.typedef.hlsl</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -111,6 +171,22 @@
 			<string>\b(sampler|sampler1D|sampler2D|sampler3D|SamplerComparisonState|samplerCUBE|sampler_state|SamplerState)\b</string>
 			<key>name</key>
 			<string>storage.type.sampler.hlsl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Attributes</string>
+			<key>match</key>
+			<string>\b(maxvertexcount|domain|earlydepthstencil|instance|maxtessfactor|numthreads|outputcontrolpoints|outputtopology|partitioning|patchconstantfunc|fastopt|loop|unroll|allow_uav_condition|branch|flatten|forcecase|call)\b</string>
+			<key>name</key>
+			<string>keyword.attribute.hlsl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Attributes</string>
+			<key>match</key>
+			<string>(?&lt;=\()\s*(tri|quad|isoline|point|line|triangle_cw|triangle_ccw|integer|fractional_even|fractional_odd|pow2)\b\s*(?=\))</string>
+			<key>name</key>
+			<string>constant.language.attribute.hlsl</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -138,6 +214,30 @@
 		</dict>
 		<dict>
 			<key>comment</key>
+			<string>State variables</string>
+			<key>match</key>
+			<string>\b(AB_BLENDFACTOR|AB_SAMPLEMASK|AddressU|AddressV|AddressW|AlphaBlendEnable|AlphaFunc|AlphaRef|AlphaTestEnable|AlphaToCoverageEnable|Ambient|AmbientMaterialSource|AntialiasedLineEnable|BackStencilFail|BackStencilFunc|BackStencilPass|BackStencilZFail|BlendEnable|BlendOp|BlendOpAlpha|BlendState|BorderColor|Clipping|ClipPlaneEnable|ColorVertex|ColorWriteEnable|ComparisonFunc|CullMode|DepthBias|DepthBiasClamp|DepthEnable|DepthFunc|DepthStencilState|DepthWriteMask|DestBlend|DestBlendAlpha|DiffuseMaterialSource|DitherEnable|DS_STENCILREF|EmissiveMaterialSource|FillMode|Filter|FogColor|FogDensity|FogEnable|FogEnd|FogStart|FogTableMode|FogVertexMode|FrontCounterClockwise|FrontStencilFail|FrontStencilFunc|FrontStencilPass|FrontStencilZFail|GeometryShader|IndexedVertexBlendEnable|LastPixel|LightAmbient|LightAttenuation[0-2]|LightDiffuse|LightDirection|LightEnable|LightFalloff|Lighting|LightPhi|LightPosition|LightRange|LightSpecular|LightTheta|LightType|LocalViewer|MagFilter|MaterialAmbient|MaterialDiffuse|MaterialEmissive|MaterialPower|MaterialSpecular|MaxAnisotropy|MaxLOD|MaxMipLevel|MinFilter|MinLOD|MipFilter|MipLODBias|MipMapLodBias|MultiSampleAntialias|MultisampleEnable|MultiSampleMask|NormalizeNormals|PatchSegments|PixelShader|PointScale|PointScaleEnable|PointSize|PointSpriteEnable|RangeFogEnable|RasterizerState|RenderTargetWriteMask|ScissorEnable|ShadeMode|SlopeScaledDepthBias|SlopeScaleDepthBias|SpecularEnable|SpecularMaterialSource|SrcBlend|SrcBlendAlpha|SRGBTexture|StencilEnable|StencilFail|StencilFunc|StencilMask|StencilPass|StencilReadMask|StencilRef|StencilWriteMask|StencilZFail|TextureFactor|TweenFactor|VertexBlend|VertexShader|Wrap([0-9]|1[0-5])|ZClipEnable)\b</string>
+			<key>name</key>
+			<string>support.constant.states.hlsl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Language constants</string>
+			<key>match</key>
+			<string>\b([0-3]WEIGHTS|ADD|ALWAYS|ANISOTROPIC|BLENDFACTOR|BORDER|BOTHINVSRCALPHA|BOTHSRCALPHA|CCW|CLAMP|COLOR1|COLOR2|CONVOLUTIONMONO|CW|DECR|DECRSAT|DESTALPHA|DESTCOLOR|DIRECTIONAL|DISABLE|EQUAL|EXP|EXP2|FALSE|FLAT|GAUSSIANQUAD|GOURAUD|GREATER|GREATEREQUAL|INCR|INCRSAT|INVBLENDFACTOR|INVDESTALPHA|INVDESTCOLOR|INVERT|INVSRCALPHA|INVSRCCOLOR|INVSRCCOLOR2|KEEP|LESS|LESSEQUAL|LINEAR|MATERIAL|MAX|MIN|MIRROR|MIRRORONCE|NEVER|NONE|NOTEQUAL|NULL|ONE|PHONG|POINT|PYRAMIDALQUAD|REPLACE|REVSUBTRACT|SOLID|SPOT|SRCALPHA|SRCALPHASAT|SRCCOLOR|SRCCOLOR2|SUBTRACT|TRUE|TWEENING|TWOSIDED|USEW|WIREFRAME|WRAP|ZERO)\b</string>
+			<key>name</key>
+			<string>constant.language.hlsl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Shader models</string>
+			<key>match</key>
+			<string>\b(ps_1_[1-4]|vs_1_1|(ps|vs)_2_([0ab]|sw)|x?[pv]s_3_0|[gpv]s_4_[01]|[cpgv]s_(4_0|4_1|5_0)|ds_5_0)\b</string>
+			<key>name</key>
+			<string>support.type.model.hlsl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
 			<string>Texture types</string>
 			<key>match</key>
 			<string>\b(texture|Texture1D|Texture1DArray|Texture2D|Texture2DArray|Texture3D|TextureCube)\b</string>
@@ -151,6 +251,86 @@
 			<string>\b(abort|abs|acos|all|AllMemoryBarrier|AllMemoryBarrierWithGroupSync|any|asdouble|asfloat|asin|asint|asuint|atan|atan2|ceil|clamp|clip|cos|cosh|countbits|cross|D3DCOLORtoUBYTE4|ddx|ddx_coarse|ddx_fine|ddy|ddy_coarse|ddy_fine|degrees|determinant|DeviceMemoryBarrier|DeviceMemoryBarrierWithGroupSync|distance|dot|dst|errorf|EvaluateAttributeAtCentroid|EvaluateAttributeAtSample|EvaluateAttributeSnapped|exp|exp2|f16tof32|f32tof16|faceforward|firstbithigh|firstbitlow|floor|fma|fmod|frac|frexp|fwidth|GetRenderTargetSampleCount|GetRenderTargetSamplePosition|GroupMemoryBarrier|GroupMemoryBarrierWithGroupSync|InterlockedAdd|InterlockedAnd|InterlockedCompareExchange|InterlockedCompareStore|InterlockedExchange|InterlockedMax|InterlockedMin|InterlockedOr|InterlockedXor|isfinite|isinf|isnan|ldexp|length|lerp|lit|log|log10|log2|mad|max|min|modf|msad4|mul|noise|normalize|pow|printf|Process2DQuadTessFactorsAvg|Process2DQuadTessFactorsMax|Process2DQuadTessFactorsMin|ProcessIsolineTessFactors|ProcessQuadTessFactorsAvg|ProcessQuadTessFactorsMax|ProcessQuadTessFactorsMin|ProcessTriTessFactorsAvg|ProcessTriTessFactorsMax|ProcessTriTessFactorsMin|radians|rcp|reflect|refract|reversebits|round|rsqrt|saturate|sign|sin|sincos|sinh|smoothstep|sqrt|step|tan|tanh|tex1D|tex1Dbias|tex1Dgrad|tex1Dlod|tex1Dproj|tex2D|tex2Dbias|tex2Dgrad|tex2Dlod|tex2Dproj|tex3D|tex3Dbias|tex3Dgrad|tex3Dlod|tex3Dproj|texCUBE|texCUBEbias|texCUBEgrad|texCUBElod|texCUBEproj|transpose|trunc)\b</string>
 			<key>name</key>
 			<string>keyword.function.intrinsic.hlsl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Function declaration</string>
+			<key>match</key>
+			<string>([a-zA-z0-9_]+)(?=\s*\()|(?=\s*\()</string>
+			<key>name</key>
+			<string>entity.name.function.hlsl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Structure declaration</string>
+			<key>match</key>
+			<string>(?&lt;=(struct))[^\S\r\n]*([a-zA-Z0-9_]+)\b</string>
+			<key>name</key>
+			<string>entity.name.struct.hlsl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Buffer declaration</string>
+			<key>match</key>
+			<string>(?&lt;=[ct]buffer)[^\S\r\n]*([a-zA-Z0-9_]+)\b</string>
+			<key>name</key>
+			<string>entity.name.buffer.hlsl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Macro</string>
+			<key>match</key>
+			<string>((?&lt;=#(ifdef|undef))|(?&lt;=#(ifndef|define))|(?&lt;=(defined\()))[^\S\r\n\)]*([a-zA-Z0-9_]+)\b</string>
+			<key>name</key>
+			<string>entity.name.macro.hlsl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Semantic macro</string>
+			<key>match</key>
+			<string>(?&lt;=:)\s*[a-zA-Z0-9_]+\b</string>
+			<key>name</key>
+			<string>entity.name.semantic-macro.hlsl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Pragma command</string>
+			<key>match</key>
+			<string>(?&lt;=#pragma)\s*(def|message|pack_matrix|warning)\b</string>
+			<key>name</key>
+			<string>keyword.function.pragma.hlsl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Illegal pragma command</string>
+			<key>match</key>
+			<string>(?&lt;=#pragma)(?!.*(def|message|pack_matrix|warning)).+</string>
+			<key>name</key>
+			<string>invalid.illegal.pragma.hlsl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Type macro</string>
+			<key>match</key>
+			<string>^\s*(?!(const|return|snorm|typedef|unorm|((vector|matrix|(bool|double|float|half|int|uint)([1-4](x[1-4])?)?|(min16(float|int|uint))|min10float|min12int)\b)))[a-zA-Z0-9_]+\s+(?=[a-zA-Z0-9_]+)</string>
+			<key>name</key>
+			<string>entity.name.macro-type.hlsl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Geometry stream type macro</string>
+			<key>match</key>
+			<string>\b(PointStream|LineStream|TriangleStream)\b</string>
+			<key>name</key>
+			<string>storage.modifier.stream.hlsl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Geometry stream object type</string>
+			<key>match</key>
+			<string>(?&lt;=[&lt;])(\b[a-zA-Z0-9_]+\b)(?=[&gt;])</string>
+			<key>name</key>
+			<string>variable.parameter.streamobject.hlsl</string>
 		</dict>
 	</array>
 	<key>scopeName</key>
