@@ -218,7 +218,7 @@
 			<key>match</key>
 			<string>\b(AB_BLENDFACTOR|AB_SAMPLEMASK|AddressU|AddressV|AddressW|AlphaBlendEnable|AlphaFunc|AlphaRef|AlphaTestEnable|AlphaToCoverageEnable|Ambient|AmbientMaterialSource|AntialiasedLineEnable|BackStencilFail|BackStencilFunc|BackStencilPass|BackStencilZFail|BlendEnable|BlendOp|BlendOpAlpha|BlendState|BorderColor|Clipping|ClipPlaneEnable|ColorVertex|ColorWriteEnable|ComparisonFunc|CullMode|DepthBias|DepthBiasClamp|DepthEnable|DepthFunc|DepthStencilState|DepthWriteMask|DestBlend|DestBlendAlpha|DiffuseMaterialSource|DitherEnable|DS_STENCILREF|EmissiveMaterialSource|FillMode|Filter|FogColor|FogDensity|FogEnable|FogEnd|FogStart|FogTableMode|FogVertexMode|FrontCounterClockwise|FrontStencilFail|FrontStencilFunc|FrontStencilPass|FrontStencilZFail|GeometryShader|IndexedVertexBlendEnable|LastPixel|LightAmbient|LightAttenuation[0-2]|LightDiffuse|LightDirection|LightEnable|LightFalloff|Lighting|LightPhi|LightPosition|LightRange|LightSpecular|LightTheta|LightType|LocalViewer|MagFilter|MaterialAmbient|MaterialDiffuse|MaterialEmissive|MaterialPower|MaterialSpecular|MaxAnisotropy|MaxLOD|MaxMipLevel|MinFilter|MinLOD|MipFilter|MipLODBias|MipMapLodBias|MultiSampleAntialias|MultisampleEnable|MultiSampleMask|NormalizeNormals|PatchSegments|PixelShader|PointScale|PointScaleEnable|PointSize|PointSpriteEnable|RangeFogEnable|RasterizerState|RenderTargetWriteMask|ScissorEnable|ShadeMode|SlopeScaledDepthBias|SlopeScaleDepthBias|SpecularEnable|SpecularMaterialSource|SrcBlend|SrcBlendAlpha|SRGBTexture|StencilEnable|StencilFail|StencilFunc|StencilMask|StencilPass|StencilReadMask|StencilRef|StencilWriteMask|StencilZFail|TextureFactor|TweenFactor|VertexBlend|VertexShader|Wrap([0-9]|1[0-5])|ZClipEnable)\b</string>
 			<key>name</key>
-			<string>support.constant.states.hlsl</string>
+			<string>support.constant.hlsl</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -234,7 +234,7 @@
 			<key>match</key>
 			<string>\b(ps_1_[1-4]|vs_1_1|(ps|vs)_2_([0ab]|sw)|x?[pv]s_3_0|[gpv]s_4_[01]|[cpgv]s_(4_0|4_1|5_0)|ds_5_0)\b</string>
 			<key>name</key>
-			<string>support.type.model.hlsl</string>
+			<string>support.type.hlsl</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -256,7 +256,7 @@
 			<key>comment</key>
 			<string>Function declaration</string>
 			<key>match</key>
-			<string>([a-zA-z0-9_]+)(?=\s*\()|(?=\s*\()</string>
+			<string>(\b([a-zA-z0-9_]+)\b)(?=\s*\()</string>
 			<key>name</key>
 			<string>entity.name.function.hlsl</string>
 		</dict>
