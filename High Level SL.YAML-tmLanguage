@@ -1,7 +1,7 @@
 # [PackageDev] target_format: plist, ext: tmLanguage
 name: High Level SL
 scopeName: source.hlsl
-fileTypes: [hlsl, fxh]
+fileTypes: [hlsl, fxh, shader]
 uuid: 79f67826-5bc3-4067-a1d5-46e7ffe52919
 
 patterns:

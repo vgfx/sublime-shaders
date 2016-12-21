@@ -5,6 +5,8 @@
 	<key>fileTypes</key>
 	<array>
 		<string>hlsl</string>
+		<string>fxh</string>
+		<string>shader</string>
 	</array>
 	<key>name</key>
 	<string>High Level SL</string>
