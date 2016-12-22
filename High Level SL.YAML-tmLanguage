@@ -1,7 +1,7 @@
 # [PackageDev] target_format: plist, ext: tmLanguage
 name: High Level SL
 scopeName: source.hlsl
-fileTypes: [hlsl, fxh, shader]
+fileTypes: [hlsl, fxh, compute, shader]
 uuid: 79f67826-5bc3-4067-a1d5-46e7ffe52919
 
 patterns:
@@ -141,7 +141,7 @@ patterns:
 - comment: Macro
   name: entity.name.macro.hlsl
   match: ((?<=#(ifdef|undef))|(?<=#(ifndef|define))|(?<=defined\()|(?<=defined\s\())[^\S\r\n\)]*([a-zA-Z0-9_]+)\b
-    
+
 - comment: Semantic macro
   name: entity.name.semantic-macro.hlsl
   match: (?<=:)\s*[a-zA-Z0-9_]+\b

@@ -6,6 +6,7 @@
 	<array>
 		<string>hlsl</string>
 		<string>fxh</string>
+		<string>compute</string>
 		<string>shader</string>
 	</array>
 	<key>name</key>
