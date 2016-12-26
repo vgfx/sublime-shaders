@@ -259,7 +259,7 @@
 			<key>comment</key>
 			<string>Function declaration</string>
 			<key>match</key>
-			<string>(\b([a-zA-z0-9_]+)\b)(?=\s*\()</string>
+			<string>(\b([a-zA-Z0-9_]+)\b)(?=\s*\()</string>
 			<key>name</key>
 			<string>entity.name.function.hlsl</string>
 		</dict>
