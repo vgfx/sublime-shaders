@@ -118,9 +118,9 @@ patterns:
   name: support.type.model.hlsl
   match: \b(ps_1_[1-4]|vs_1_1|(ps|vs)_2_([0ab]|sw)|x?[pv]s_3_0|[gpv]s_4_[01]|[cpgv]s_(4_0|4_1|5_0)|ds_5_0)\b
 
-- comment: Texture types
-  name: storage.type.texture.hlsl
-  match: \b(texture|Texture1D|Texture1DArray|Texture2D|Texture2DArray|Texture3D|TextureCube)\b
+- comment: Object types
+  name: storage.type.object.hlsl
+  match: \b(AppendStructuredBuffer|Buffer|ByteAddressBuffer|ConsumeStructuredBuffer|InputPatch|OutputPatch|RWBuffer|RWByteAddressBuffer|RWStructuredBuffer|RWTexture1D|RWTexture1DArray|RWTexture2D|RWTexture2DArray|RWTexture3D|StructuredBuffer|Texture1D|Texture1DArray|Texture2D|Texture2DArray|Texture2DMS|Texture2DMSArray|Texture3D|TextureCube|TextureCubeArray)\b
 
 - comment: Intrinsic functions
   name: keyword.function.intrinsic.hlsl

@@ -241,11 +241,11 @@
 		</dict>
 		<dict>
 			<key>comment</key>
-			<string>Texture types</string>
+			<string>Object types</string>
 			<key>match</key>
-			<string>\b(texture|Texture1D|Texture1DArray|Texture2D|Texture2DArray|Texture3D|TextureCube)\b</string>
+			<string>\b(AppendStructuredBuffer|Buffer|ByteAddressBuffer|ConsumeStructuredBuffer|InputPatch|OutputPatch|RWBuffer|RWByteAddressBuffer|RWStructuredBuffer|RWTexture1D|RWTexture1DArray|RWTexture2D|RWTexture2DArray|RWTexture3D|StructuredBuffer|Texture1D|Texture1DArray|Texture2D|Texture2DArray|Texture2DMS|Texture2DMSArray|Texture3D|TextureCube|TextureCubeArray)\b</string>
 			<key>name</key>
-			<string>storage.type.texture.hlsl</string>
+			<string>storage.type.object.hlsl</string>
 		</dict>
 		<dict>
 			<key>comment</key>
