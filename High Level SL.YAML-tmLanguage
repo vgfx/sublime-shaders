@@ -143,8 +143,8 @@ patterns:
   match: ((?<=#(ifdef|undef))|(?<=#(ifndef|define))|(?<=defined\()|(?<=defined\s\())[^\S\r\n\)]*([a-zA-Z0-9_]+)\b
 
 - comment: Semantic macro
-  name: entity.name.semantic-macro.hlsl
-  match: (?<=:)\s*[a-zA-Z_]+[a-zA-Z0-9_]*\b
+  name: entity.name.semantic_macro.hlsl
+  match: (?<=:)\s*([A-Z]+[a-zA-Z_]+[0-9]*)\b(?=\s*;)
 
 - comment: Pragma command
   name: keyword.function.pragma.hlsl
