@@ -64,7 +64,7 @@ patterns:
 
 - comment: Vector forms of scalar types
   name: storage.type.vector.hlsl
-  match: \b(double|float|half|int|uint|min10float|min16float|min12int|min16int|min16uint)[1-4]\b
+  match: \b(bool|double|float|half|int|uint|min10float|min16float|min12int|min16int|min16uint)[1-4]\b
 
 - comment: Componenets of vectors
   name: storage.type.access.hlsl
