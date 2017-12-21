@@ -123,7 +123,7 @@
 			<key>comment</key>
 			<string>Basic types</string>
 			<key>match</key>
-			<string>\b(bool|double|dword|float|half|int|min10float|min16float|min12int|min16int|min16uint|struct|uint|void|cbuffer|tbuffer|vector|matrix|string)\b</string>
+			<string>\b(bool|double|dword|float|half|real|int|min10float|min16float|min12int|min16int|min16uint|struct|uint|void|cbuffer|tbuffer|vector|matrix|string)\b</string>
 			<key>name</key>
 			<string>storage.type.scalar.hlsl</string>
 		</dict>
@@ -131,7 +131,7 @@
 			<key>comment</key>
 			<string>Vector forms of scalar types</string>
 			<key>match</key>
-			<string>\b(bool|double|float|half|int|uint|min10float|min16float|min12int|min16int|min16uint)[1-4]\b</string>
+			<string>\b(bool|double|float|half|real|int|uint|min10float|min16float|min12int|min16int|min16uint)[1-4]\b</string>
 			<key>name</key>
 			<string>storage.type.vector.hlsl</string>
 		</dict>
@@ -147,7 +147,7 @@
 			<key>comment</key>
 			<string>Matrix forms of scalar types</string>
 			<key>match</key>
-			<string>\b(double|float|half|int|uint|min10float|min16float|min12int|min16int|min16uint)[1-4]x[1-4]\b</string>
+			<string>\b(double|float|half|real|int|uint|min10float|min16float|min12int|min16int|min16uint)[1-4]x[1-4]\b</string>
 			<key>name</key>
 			<string>storage.type.matrix.hlsl</string>
 		</dict>
@@ -315,7 +315,7 @@
 			<key>comment</key>
 			<string>Type macro</string>
 			<key>match</key>
-			<string>^\s*(?!(const|return|snorm|typedef|unorm|((vector|matrix|(bool|double|float|half|int|uint)([1-4](x[1-4])?)?|(min16(float|int|uint))|min10float|min12int)\b)))[a-zA-Z0-9_]+\s+(?=[a-zA-Z0-9_]+)</string>
+			<string>^\s*(?!(const|return|snorm|typedef|unorm|((vector|matrix|(bool|double|float|half|real|int|uint)([1-4](x[1-4])?)?|(min16(float|int|uint))|min10float|min12int)\b)))[a-zA-Z0-9_]+\s+(?=[a-zA-Z0-9_]+)</string>
 			<key>name</key>
 			<string>entity.name.macro-type.hlsl</string>
 		</dict>

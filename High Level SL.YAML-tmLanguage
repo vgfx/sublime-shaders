@@ -60,11 +60,11 @@ patterns:
 
 - comment: Basic types
   name: storage.type.scalar.hlsl
-  match: \b(bool|double|dword|float|half|int|min10float|min16float|min12int|min16int|min16uint|struct|uint|void|cbuffer|tbuffer|vector|matrix|string)\b
+  match: \b(bool|double|dword|float|half|real|int|min10float|min16float|min12int|min16int|min16uint|struct|uint|void|cbuffer|tbuffer|vector|matrix|string)\b
 
 - comment: Vector forms of scalar types
   name: storage.type.vector.hlsl
-  match: \b(bool|double|float|half|int|uint|min10float|min16float|min12int|min16int|min16uint)[1-4]\b
+  match: \b(bool|double|float|half|real|int|uint|min10float|min16float|min12int|min16int|min16uint)[1-4]\b
 
 - comment: Componenets of vectors
   name: storage.type.access.hlsl
@@ -72,7 +72,7 @@ patterns:
 
 - comment: Matrix forms of scalar types
   name: storage.type.matrix.hlsl
-  match: \b(double|float|half|int|uint|min10float|min16float|min12int|min16int|min16uint)[1-4]x[1-4]\b
+  match: \b(double|float|half|real|int|uint|min10float|min16float|min12int|min16int|min16uint)[1-4]x[1-4]\b
 
 - comment: Float type modifier
   name: keyword.modifier.float.hlsl
@@ -156,7 +156,7 @@ patterns:
 
 - comment: Type macro
   name: entity.name.macro-type.hlsl
-  match: ^\s*(?!(const|return|snorm|typedef|unorm|((vector|matrix|(bool|double|float|half|int|uint)([1-4](x[1-4])?)?|(min16(float|int|uint))|min10float|min12int)\b)))[a-zA-Z0-9_]+\s+(?=[a-zA-Z0-9_]+)
+  match: ^\s*(?!(const|return|snorm|typedef|unorm|((vector|matrix|(bool|double|float|half|real|int|uint)([1-4](x[1-4])?)?|(min16(float|int|uint))|min10float|min12int)\b)))[a-zA-Z0-9_]+\s+(?=[a-zA-Z0-9_]+)
 
 - comment: Geometry stream type macro
   name: storage.modifier.stream.hlsl
